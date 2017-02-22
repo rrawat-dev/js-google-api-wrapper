@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Retrieving Autocomplete Predictions</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #right-panel {
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+
+      .settings {
+        position: absolute;
+        right: 0;
+        top: 150px;
+        border: 3px solid #000;
+        width: 400px;
+        margin: 0;
+      }
+
+      .settings h2 {
+        margin: 0;
+        margin-bottom: 10px;
+        padding: 5px;
+        background: black;
+        color: white;
+      }
+
+      .settings h3 {
+        margin-bottom: 10px;
+      }
+
+      .settings-place-search, .settings-query-search {
+        display: none;
+      }
+
+      input[value="PLACE"]:checked ~ .settings-place-search {
+        display: block;
+      }
+
+      input[value="QUERY"]:checked ~ .settings-query-search {
+        display: block;
+      }
+
+      h1 {
+        background: grey;
+        color: white;
+        padding: 50px 10px;
+        margin: 0 0 20px 0;
+      }
+
+      form[name="searchForm"] {
+        margin-left: 50px;
+      }
+
+      form[name="searchForm"] input[type="text"] {
+        width: 250px;
+        height: 25px;
+        font-size: 16px;
+      }
+
+      form[name="settingsForm"] {
+        padding: 0 15px 15px 15px;
+      }
+
+      form[name="settingsForm"] input[type="text"] {
+        height: 20px;
+      }
+
+      .predictions-wrap li {
+        line-height: 150%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1> Autocomplete Demo</h1>
+    <form name="searchForm">
+      <label> Search: <input type="text" name="search" autocomplete="off"  /></label>
+      <div class="predictions-wrap"></div>
+    </form>
+
+    <div class="settings">
+      <h2>Settings</h2>
+      <form name="settingsForm">
+        
+        <h3>Search Type: </h3>
+        <input type="radio" name="predictionType" value="PLACE" checked="checked" /> Place
+        <input type="radio" name="predictionType" value="QUERY" /> QUERY
+
+        <div class="settings-place-search">
+          <h3>Place Types:</h3>
+          <input type="checkbox" name="types" value="establishment"> establishment
+          <input type="checkbox" name="types" value="geocode"> geocode
+          <input type="checkbox" name="types" value="(regions)"> (regions)
+          <input type="checkbox" name="types" value="(cities)"> (cities)
+
+          <h3>Component Restriction:</h3>
+          <select name="componentRestrictions">
+            <option value="">Select</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+            <option value="in">India</option>
+          </select>
+
+          <h3>Offset:</h3>
+          <input type="text" name="offset" size="5">
+
+          <h3>Location:</h3>
+          <label>Geocode: <input type="text" name="location" size="20"></label>
+          <label>Radius: <input type="text" name="radius" size="8"></label>
+        </div>
+
+        <div class="settings-query-search">
+          <h3>Offset:</h3>
+          <input type="text" name="offset" size="3">
+
+          <h3>Location:</h3>
+          <label>Geocode: <input type="text" name="location" size="20"></label>
+          <label>Radius: <input type="text" name="radius" size="8"></label>
+        </div>
+        </div>
+      </form>  
+    </div>
+
+    <script src="../dist/autocomplete.bundle.js"></script>
+  </body>
+</html>

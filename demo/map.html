@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <title>Retrieving Autocomplete Predictions</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      
+    .map-links {
+        margin: 0;
+    }
+
+      .map-links::after {
+        content: '';
+        clear: both;
+        display: block;
+
+      } 
+      
+      .map-links li {
+        float: left;
+        margin: 0;
+        margin-left: 10px;
+        padding: 5px;
+        border: 1px solid #ff0000;
+        border-bottom: none;
+        list-style-type: none;
+      }
+
+    .map-container {
+        border: 1px solid #ff0000;
+        height: 400px;
+    }
+
+    .map {
+      height: 100%;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>Map Demo</h1>
+    <div class="map-container">
+        <div class="map"></div>
+        <div class="place-searches">
+          <label><input type="checkbox" name="placeType" value="restaurants" /> Restaurants</label>
+          <label><input type="checkbox" name="placeType" value="" /> Public Transport</label>
+          <label><input type="checkbox" name="placeType" value="" /> Attractions</label>
+        </div>
+    </div>
+
+    <script src="../dist/map.bundle.js"></script>
+  </body>
+</html>
